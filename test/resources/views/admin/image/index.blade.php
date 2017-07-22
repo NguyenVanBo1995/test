@@ -40,7 +40,7 @@
                                         <td class="center">
                                             <a href="#" onclick="document.getElementById('form-edit-image-{{$image->id}}').submit()"
                                                title="edit"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                                            <a href="#" title="" onclick="confiemDelete('{{$image->id}}')"><i
+                                            <a href="#" title="delete" onclick="confiemDelete('{{$image->id}}')"><i
                                                         class="fa fa-trash fa-fw"></i>Delete</a>
                                             {{Form::open(['route' => ['image.edit', $image->id], 'method' => 'GET', 'id'=> 'form-edit-image-'.$image->id])}}
                                             {{Form::close()}}
