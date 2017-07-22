@@ -38,11 +38,11 @@
                                         <td><img src="{{$image->url}}" width="60px"></td>
                                         <td class="center">{{$image->created_at}}</td>
                                         <td class="center">
-                                            <a href="#" onclick="document.getElementById('form-edit-image').submit()"
+                                            <a href="#" onclick="document.getElementById('form-edit-image-{{$image->id}}').submit()"
                                                title="edit"><i class="fa fa-edit fa-fw"></i>Edit</a>
                                             <a href="#" title="'delete" onclick="confiemDelete()"><i
                                                         class="fa fa-trash fa-fw"></i>Delete</a>
-                                            {{Form::open(['route' => ['image.edit', $image->id], 'method' => 'GET', 'id'=> 'form-edit-image'])}}
+                                            {{Form::open(['route' => ['image.edit', $image->id], 'method' => 'GET', 'id'=> 'form-edit-image-'.$image->id])}}
                                             {{Form::close()}}
                                         </td>
                                     </tr>
