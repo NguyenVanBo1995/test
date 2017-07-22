@@ -40,9 +40,11 @@
                                         <td class="center">
                                             <a href="#" onclick="document.getElementById('form-edit-image-{{$image->id}}').submit()"
                                                title="edit"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                                            <a href="#" title="'delete" onclick="confiemDelete()"><i
+                                            <a href="#" title="'delete" onclick="confiemDelete('{{$image->id}}')"><i
                                                         class="fa fa-trash fa-fw"></i>Delete</a>
                                             {{Form::open(['route' => ['image.edit', $image->id], 'method' => 'GET', 'id'=> 'form-edit-image-'.$image->id])}}
+                                            {{Form::close()}}
+                                            {{Form::open(['route' => ['image.destroy', $image->id], 'method' => 'DELETE', 'id'=> 'form-delete-image-'.$image->id])}}
                                             {{Form::close()}}
                                         </td>
                                     </tr>
@@ -70,8 +72,6 @@
     </div>
     <!-- /#page-wrapper -->
 
-    {{Form::open(['route' => ['image.destroy', $image->id], 'method' => 'DELETE', 'id'=> 'form-delete-image'])}}
-    {{Form::close()}}
 @stop
 @section('extra-js')
     <script>
@@ -92,10 +92,10 @@
                 responsive: true
             });
         });
-        function confiemDelete() {
+        function confiemDelete(id) {
             var x = confirm("Are you sure you want to delete this image?");
             if (x) {
-                $('#form-delete-image').submit();
+                $('#form-delete-image-'+id).submit();
             }
         }
     </script>
